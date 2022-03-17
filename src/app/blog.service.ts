@@ -18,15 +18,7 @@ export class BlogService {
 
 
   addPost(postPayload: PostPayload){
-    // this.token = this.localStoraqeService.retrieve('authenticationToken');
-    // let headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'Access-Control-Allow-Origin': '*',
-    //   'Access-Control-Allow-Headers': 'Content-Type',
-    //   'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
-    //   'Authorization': 'Bearer '+ this.token,
-    // });
-    // console.log(headers);
+  
     return this.httpClient.post('http://localhost:8080/api/posts/', postPayload);
   }
   
