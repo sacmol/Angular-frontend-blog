@@ -32,15 +32,7 @@ export class BlogService {
   
   getAllBlogs(): Observable<Blog[]>{
   
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
-      'Authorization': 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlcmsifQ.CDPoI2g2ZKmHx1vqhYFO13CExKqdoDgPOhbMMTqoBY1Jd5wtt_FKDqO46R2KKvihBxdo_NSCc-Hi7UlkhXYmXQIm63tPsiH7SUsoGsoFhqJ73khhRRDiB3eosBGoNZimkxr3eAaNKJmDHtQV1XYTGXVoMH1MDuXjk0OKu925XU7gPVZL95XfUtAV7dryfHIhoTBeEVYZpCaeLPoASTIgQ7-8CgtmZmuvsiUTWMAs7Kr4ouyX-2Lz18_Wk801FApJa05Db_cJp6RnLuODA3Se17EyftI1oZu_jgZPzlVzvr66QyrLyzmrPusIr4dJdKGJ3ighaTgGGJVmtha5G_dGeA',
-    });
-
-    
+   
     return this.httpClient.get<Blog[]>(`${this.baseURL}`+"/all");
   }
 
