@@ -21,6 +21,7 @@ export class AuthenticateService {
 
   login(loginPayload: Payload): Observable<boolean> {
     return this.httpClient.post<JwtAutResponse>(this.url + 'login', loginPayload).pipe(map(data => {
+      console.log(data)
       this.localStoraqeService.store('authenticationToken', data.authenticationToken);
       this.localStoraqeService.store('username', data.username);
       return true;
@@ -32,7 +33,13 @@ export class AuthenticateService {
   }
 
   logout() {
+    const token = this.localStoraqeService.retrieve("authenticationToken");
+    const token1 = this.localStoraqeService.retrieve("username");
+    console.log(token, token1)
     this.localStoraqeService.clear('authenticationToken');
     this.localStoraqeService.clear('username');
+    const token3 = this.localStoraqeService.retrieve("authenticationToken");
+    const token4 = this.localStoraqeService.retrieve("username");
+    console.log(token3, token4)
   }
 }

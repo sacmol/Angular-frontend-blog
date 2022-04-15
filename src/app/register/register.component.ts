@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   //   password: null,
   //   confirmPassword: null
   // };
-  // registerForm!: FormGroup;
+  registerForm!: FormGroup;
    registerPayload!: RegisterPayload;
   constructor(private formBuilder: FormBuilder,private router:Router, private authService: AuthenticateService) { 
 
@@ -49,21 +49,21 @@ export class RegisterComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.form.get('password')?.value);
-    this.registerPayload.username = this.form.get('password')?.value
+    this.registerPayload.username = this.form.get('username')?.value
     console.log(this.registerPayload.username);
     // this.registerPayload.username = this.form.username;
-    // this.registerPayload.email = this.form.email;
-    // this.registerPayload.password = this.form.password;
-    // this.registerPayload.confirmPassword = this.form.confirmPassword;
+    this.registerPayload.email = this.form.get('email')?.value;
+    this.registerPayload.password = this.form.get('password')?.value;
+    this.registerPayload.confirmPassword = this.form.get('confirm_password')?.value;
 
-    // this.authService.register(this.registerPayload).subscribe(data =>{
-    //   console.log(data)
+    this.authService.register(this.registerPayload).subscribe(data =>{
+      console.log(data)
       
-    //   console.log('register succes');
-    //   this.router.navigateByUrl('/register-success');
-    // }, error => {
-    //   console.log('register failed');
-    // });
+      console.log('register succes');
+      this.router.navigateByUrl('/register-success');
+    }, error => {
+      console.log('register failed');
+    });
   }
 
 }
